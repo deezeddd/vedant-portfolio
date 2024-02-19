@@ -1,38 +1,78 @@
-.App {
-  text-align: center;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body{
+/* font-family: 'Nova Square', sans-serif; */
+font-family: 'Chakra Petch', sans-serif;
+}
+html{
+  scroll-behavior: smooth;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.custom-bg{
+    background-color:#EEFF0C;
+}
+.overlay {
+    text-align: end;
+    position: relative;
+    z-index:100;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.section-container .custom-image-animation {
+    background-color: #EEFF0C;
+    transform: translate(0px, 0px);
+    transition: background-color 3s ease-in-out, transform 2s ease-in-out;
   }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+  
+  .section-container:hover .custom-image-animation {
+    background-color: rgb(79, 247, 247);
+    transform: translate(50px, 30px);
   }
-  to {
-    transform: rotate(360deg);
+  
+
+.section-container .custom-font-animation {
+    transform: translate(100px, 30px);
+    opacity: 0.5;
+    transition: transform 3s, opacity 3s;
   }
-}
+  
+  .section-container:hover .custom-font-animation {
+    transform: translate(0px, 10px);
+    opacity: 1;
+  }
+
+  .custom-detail .details{
+    opacity: 0;
+    transition: opacity 1s;
+  }
+  .custom-detail:hover .details{
+    opacity: 1;
+  }
+
+  .college {
+    display: inline-block;
+    position: relative;
+    color: #0087ca;
+    text-decoration: none; /* Remove the default underline */
+    padding-bottom: 2px; /* Add some padding to separate the text from the underline */
+  }
+  
+  .college:after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px; /* Increase the height for a more noticeable underline */
+    bottom: 0;
+    left: 0;
+    background-color: #0087ca;
+    transform-origin: bottom left;
+    transition: transform 0.3s ease-in-out; /* Shorten the duration for a quicker response */
+  }
+  
+  .college:hover:after {
+    transform: scaleX(1);
+    transform-origin: bottom right;
+  }
+  
